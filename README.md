@@ -41,8 +41,9 @@ rock wrap-over 2.2×, dead zones behind rocks 100% → 73%.
   candidates, this machine runs 8 parallel sims/round, tank sims decide
   finals. `agent/log.md` is the full campaign narrative.
 - `cage.stl` — the stock cage mesh the part is built on (see attribution)
-- v1 (`mp60_fan_shroud.scad`, clamshell) and v2 (`build_v2.py`, mitered)
-  kept for reference; superseded.
+
+Earlier revisions (v1 OpenSCAD clamshell, v2 mitered-corner) are not in the
+working tree; they live in git history if ever needed.
 
 ## MP40 variant
 
