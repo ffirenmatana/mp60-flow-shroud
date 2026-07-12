@@ -308,20 +308,33 @@ def straighteners():
     return parts
 
 
+RIB_YS = (-28.0, -10.0, 10.0, 28.0)   # gusset positions (tube exists here)
+RIB_T = 6.0                            # rib thickness
+RIB_SLOPE = np.tan(np.radians(55))     # steeper than 45: shorter reach
+
+
 def corbel():
-    """45-deg wedge from the duct outer wall to the fan-root underside."""
+    """Ribbed gussets from the riser wall to the fan-root underside.
+
+    Replaces the old solid web: same load path (fan-root bending sheared
+    into the riser tube), ~1/5 the visual bulk. Each rib's inner edge sits
+    at the local tube surface x(y); 55-deg hypotenuse self-supports and
+    the 12-18mm bays between ribs bridge cleanly."""
     o, tv, n = frame(L_PRE + ARC_LEN)
     _, w, area, _ = section_profile(L_PRE + ARC_LEN)
     h0, _ = roof_shape(np.zeros(1), 0.0, w, area)
-    root = o - n * (h0 / 2 + WALL)          # fan floor exterior at root
-    x0 = BORE / 2 + WALL - 1
-    z0 = Z_JOIN + 4
-    x1 = x0 + (root[2] - z0) if root[2] > z0 else x0 + 5
-    tri = np.array([[x0, z0], [min(x1, root[0] + 10), root[2] + 1],
-                    [x0, root[2] + 1]])
-    secs = [np.column_stack([tri[:, 0], np.full(3, yy), tri[:, 1]])
-            for yy in (-DUCT_W / 2 - 2, DUCT_W / 2 + 2)]
-    return loft_quads(secs)
+    z_top = float((o - n * (h0 / 2 + WALL))[2]) + 1.5
+    z_low = Z_JOIN + 2
+    r_tube = BORE / 2 + WALL
+    ribs = []
+    for yk in RIB_YS:
+        xi = float(np.sqrt(max(r_tube**2 - yk**2, 25.0))) - 1.5
+        x_reach = xi + (z_top - z_low) / RIB_SLOPE
+        tri = np.array([[xi, z_low], [x_reach, z_top], [xi, z_top]])
+        secs = [np.column_stack([tri[:, 0], np.full(3, yy), tri[:, 1]])
+                for yy in (yk - RIB_T / 2, yk + RIB_T / 2)]
+        ribs.append(loft_quads(secs))
+    return ribs
 
 
 def bool_op(op, meshes):
@@ -336,7 +349,7 @@ def main():
 
     cavity = duct_loft(0.0, ext=WALL + 2)
     outer = duct_loft(WALL, ext=0.0)
-    shell = bool_op('difference', [bool_op('union', [outer, corbel()]), cavity])
+    shell = bool_op('difference', [bool_op('union', [outer] + corbel()), cavity])
 
     internals = fan_vanes() + straighteners()
     internals = [bool_op('intersection', [p, cavity]) for p in internals]
