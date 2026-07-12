@@ -45,6 +45,21 @@ rock wrap-over 2.2×, dead zones behind rocks 100% → 73%.
 Earlier revisions (v1 OpenSCAD clamshell, v2 mitered-corner) are not in the
 working tree; they live in git history if ever needed.
 
+## Test the fit first (recommended)
+
+Before the ~2-day full print, print the mount coupon — the bottom 22 mm
+(bayonet + barrel), ~30 min, and twist it onto the wet side to confirm the
+lock seats:
+
+```bash
+python3 make_coupon.py            # -> mp60_mount_coupon.stl
+python3 make_coupon.py --pump mp40
+```
+
+The coupon is a boolean slice of the full part, so its mount geometry is
+identical (verified 0.0000 mm vs the cage) — a good coupon fit means a good
+part fit. Print it in the same PETG, no supports, no brim needed.
+
 ## MP40 variant
 
 `build_v3.py --pump mp40` generates the same architecture scaled to the
