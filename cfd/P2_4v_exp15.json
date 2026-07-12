@@ -1,0 +1,8 @@
+{
+ "exit_nonuniformity": 1.017,
+ "mass_balance": 1.007,
+ "downstream_frac_outside_duct_width": 0.388,
+ "downstream_spread_sigma_mm": 45.7,
+ "centroid_offset_mm": -0.2,
+ "name": "P2_4v_exp15"
+}

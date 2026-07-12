@@ -1,0 +1,9 @@
+{
+ "K_loss": 1.559,
+ "exit_net_u": 0.893,
+ "mass_balance": 1.008,
+ "exit_nonuniformity": 0.762,
+ "exit_reversed_frac": 0.142,
+ "separation_area_mm2": 741.0,
+ "name": "M3_trunc"
+}

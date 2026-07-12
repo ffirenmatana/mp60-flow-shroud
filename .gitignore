@@ -1,0 +1,15 @@
+*.npz
+cfd/old/
+agent/smoke/
+agent/runs/*.log
+agent/runs/*.cfg.json
+agent/optimizer.out
+v3_shell_only.stl
+v3_corbel_only.stl
+v3_vanes_trimmed.stl
+v2_shell_only.stl
+nohup.out
+__pycache__/
+cage.stl
+mp60_shroud_v2.stl
+mp60_shroud_v3.stl

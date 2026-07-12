@@ -1,0 +1,9 @@
+{
+ "K_loss": 2.368,
+ "exit_net_u": 0.893,
+ "mass_balance": 1.006,
+ "exit_nonuniformity": 0.406,
+ "exit_reversed_frac": 0.0,
+ "separation_area_mm2": 519.0,
+ "name": "M3_miter3"
+}

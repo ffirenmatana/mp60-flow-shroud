@@ -1,0 +1,10 @@
+[P0_novane] grid 360x602, tau0=0.50537
+[P0_novane] step 0 umax=0.000
+[P0_novane] step 4000 umax=0.050
+[P0_novane] step 8000 umax=0.076
+[P0_novane] step 12000 umax=0.076
+[P0_novane] step 16000 umax=0.080
+[P0_novane] step 20000 umax=0.079
+[P0_novane] step 24000 umax=0.075
+[P0_novane] step 28000 umax=0.075
+[P0_novane] done: {"exit_nonuniformity": 1.143, "mass_balance": 1.006, "downstream_frac_outside_duct_width": 0.02, "downstream_spread_sigma_mm": 20.4, "centroid_offset_mm": 0.1, "name": "P0_novane"}

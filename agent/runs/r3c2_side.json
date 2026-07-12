@@ -1,0 +1,9 @@
+{
+ "K_loss": 0.219,
+ "exit_net_u": 0.99,
+ "mass_balance": 1.002,
+ "exit_nonuniformity": 0.617,
+ "exit_reversed_frac": 0.051,
+ "separation_area_mm2": 886.0,
+ "name": "r3c2_side"
+}

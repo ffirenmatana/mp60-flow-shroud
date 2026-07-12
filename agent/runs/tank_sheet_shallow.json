@@ -1,0 +1,12 @@
+{
+ "coral_mean_u": 0.0012,
+ "coral_frac_gt_10pct": 0.0,
+ "coral_frac_gt_25pct": 0.0,
+ "wall_arrival_u": 0.0,
+ "gyre_index": 0.0157,
+ "floor_sweep_u": 0.0485,
+ "rock_wrap_u": 0.0691,
+ "lee_dead_frac": 1.0,
+ "tank_mean_u": 0.0946,
+ "name": "tank_sheet_shallow"
+}

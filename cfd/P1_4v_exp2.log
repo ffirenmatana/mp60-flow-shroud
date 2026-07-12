@@ -1,0 +1,10 @@
+[P1_4v_exp2] grid 360x602, tau0=0.50537
+[P1_4v_exp2] step 0 umax=0.000
+[P1_4v_exp2] step 4000 umax=0.060
+[P1_4v_exp2] step 8000 umax=0.111
+[P1_4v_exp2] step 12000 umax=0.126
+[P1_4v_exp2] step 16000 umax=0.114
+[P1_4v_exp2] step 20000 umax=0.114
+[P1_4v_exp2] step 24000 umax=0.114
+[P1_4v_exp2] step 28000 umax=0.115
+[P1_4v_exp2] done: {"exit_nonuniformity": 1.19, "mass_balance": 1.012, "downstream_frac_outside_duct_width": 0.338, "downstream_spread_sigma_mm": 41.8, "centroid_offset_mm": -0.5, "name": "P1_4v_exp2"}

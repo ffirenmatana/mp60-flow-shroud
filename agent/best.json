@@ -1,0 +1,37 @@
+{
+ "params": {
+  "bend_r": 62.0,
+  "duct_h": 52.0,
+  "fan_len": 90.0,
+  "exit_w": 250.0,
+  "area_ratio": 1.4,
+  "n_vanes": 6,
+  "exp": 2.4,
+  "tilt": 25.0
+ },
+ "metrics": {
+  "K_loss": 0.1878333333333333,
+  "Q_lps": 5.35,
+  "v_exit": 0.949,
+  "exit_h": 22.5,
+  "spread": 56.6,
+  "outfrac": 0.622,
+  "plan_uni": 1.368
+ },
+ "tank": {
+  "coral_mean_u": 0.0026,
+  "coral_frac_gt_10pct": 0.0,
+  "coral_frac_gt_25pct": 0.0,
+  "wall_arrival_u": 0.0001,
+  "gyre_index": 0.0071,
+  "floor_sweep_u": 0.071,
+  "rock_wrap_u": 0.0719,
+  "lee_dead_frac": 1.0,
+  "tank_mean_u": 0.0782,
+  "name": "tank_sheet_steep"
+ },
+ "verdict": {
+  "winner": "sheet_steep",
+  "why": "sheet_steep has the highest floor_sweep_u (0.071), meeting the first goal. While its rock_wrap_u (0.0719) is moderate and lee_dead_frac (1.0) is high, it's the best among options for the first priority. Gyre_index and wall_arrival_u are lower than sheet_shallow, but secondary goals are less critical."
+ }
+}

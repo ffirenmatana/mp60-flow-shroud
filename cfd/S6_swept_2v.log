@@ -1,0 +1,10 @@
+[S6_swept_2v] grid 388x311, tau0=0.50537
+[S6_swept_2v] step 0 umax=0.000
+[S6_swept_2v] step 4000 umax=0.051
+[S6_swept_2v] step 8000 umax=0.094
+[S6_swept_2v] step 12000 umax=0.098
+[S6_swept_2v] step 16000 umax=0.098
+[S6_swept_2v] step 20000 umax=0.100
+[S6_swept_2v] step 24000 umax=0.100
+[S6_swept_2v] step 28000 umax=0.099
+[S6_swept_2v] done: {"K_loss": 0.605, "exit_net_u": 0.993, "mass_balance": 1.002, "exit_nonuniformity": 0.41, "exit_reversed_frac": 0.0, "separation_area_mm2": 12.0, "name": "S6_swept_2v"}

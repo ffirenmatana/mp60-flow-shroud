@@ -1,0 +1,8 @@
+{
+ "exit_nonuniformity": 1.143,
+ "mass_balance": 1.006,
+ "downstream_frac_outside_duct_width": 0.02,
+ "downstream_spread_sigma_mm": 20.4,
+ "centroid_offset_mm": 0.1,
+ "name": "P0_novane"
+}

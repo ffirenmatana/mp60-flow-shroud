@@ -1,0 +1,12 @@
+{
+ "coral_mean_u": 0.0171,
+ "coral_frac_gt_10pct": 0.048,
+ "coral_frac_gt_25pct": 0.025,
+ "wall_arrival_u": 0.0002,
+ "gyre_index": -0.0089,
+ "floor_sweep_u": 0.0211,
+ "rock_wrap_u": 0.155,
+ "lee_dead_frac": 0.727,
+ "tank_mean_u": 0.1539,
+ "name": "tank_hi_mid"
+}

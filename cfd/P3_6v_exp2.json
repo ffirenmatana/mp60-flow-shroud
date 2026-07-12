@@ -1,0 +1,8 @@
+{
+ "exit_nonuniformity": 1.191,
+ "mass_balance": 1.007,
+ "downstream_frac_outside_duct_width": 0.356,
+ "downstream_spread_sigma_mm": 45.1,
+ "centroid_offset_mm": -0.2,
+ "name": "P3_6v_exp2"
+}

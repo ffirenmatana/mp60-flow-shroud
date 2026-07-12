@@ -1,0 +1,8 @@
+{
+ "exit_nonuniformity": 0.655,
+ "mass_balance": 1.0,
+ "downstream_frac_outside_duct_width": 0.021,
+ "downstream_spread_sigma_mm": 22.1,
+ "centroid_offset_mm": 0.0,
+ "name": "r2c3_plan"
+}

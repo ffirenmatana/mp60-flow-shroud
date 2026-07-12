@@ -1,0 +1,10 @@
+[S5_swept_0v] grid 388x311, tau0=0.50537
+[S5_swept_0v] step 0 umax=0.000
+[S5_swept_0v] step 4000 umax=0.050
+[S5_swept_0v] step 8000 umax=0.076
+[S5_swept_0v] step 12000 umax=0.079
+[S5_swept_0v] step 16000 umax=0.091
+[S5_swept_0v] step 20000 umax=0.099
+[S5_swept_0v] step 24000 umax=0.093
+[S5_swept_0v] step 28000 umax=0.091
+[S5_swept_0v] done: {"K_loss": 0.202, "exit_net_u": 0.99, "mass_balance": 1.003, "exit_nonuniformity": 0.653, "exit_reversed_frac": 0.107, "separation_area_mm2": 564.0, "name": "S5_swept_0v"}

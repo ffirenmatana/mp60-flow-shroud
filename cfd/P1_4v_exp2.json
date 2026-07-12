@@ -1,0 +1,8 @@
+{
+ "exit_nonuniformity": 1.19,
+ "mass_balance": 1.012,
+ "downstream_frac_outside_duct_width": 0.338,
+ "downstream_spread_sigma_mm": 41.8,
+ "centroid_offset_mm": -0.5,
+ "name": "P1_4v_exp2"
+}

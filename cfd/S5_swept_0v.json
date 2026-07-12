@@ -1,0 +1,9 @@
+{
+ "K_loss": 0.202,
+ "exit_net_u": 0.99,
+ "mass_balance": 1.003,
+ "exit_nonuniformity": 0.653,
+ "exit_reversed_frac": 0.107,
+ "separation_area_mm2": 564.0,
+ "name": "S5_swept_0v"
+}

@@ -1,0 +1,8 @@
+{
+ "exit_nonuniformity": 1.03,
+ "mass_balance": 1.002,
+ "downstream_frac_outside_duct_width": 0.296,
+ "downstream_spread_sigma_mm": 39.9,
+ "centroid_offset_mm": -0.6,
+ "name": "r4c0_plan"
+}
