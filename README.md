@@ -82,6 +82,7 @@ python3 build_v3.py            # -> mp60_shroud_v3.stl
 - Cage mesh: (c) [asadler99](https://cults3d.com/en/users/asadler99),
   [Cults PU license](https://cults3d.com/en/licenses#cults_pu) — print for
   private use only; not redistributed here. Thanks for a cleanly-modeled
-  base part. VorTech and MP60 are EcoTech Marine trademarks; this is an
+  base part. (Permission to include the derived STLs has been requested
+  from the author, July 2026 — if granted, prebuilt STLs will be added.) VorTech and MP60 are EcoTech Marine trademarks; this is an
   unaffiliated hobby project — use at your own risk.
 - Code (generator, extractor, CFD solver, optimizer): MIT.
