@@ -44,6 +44,14 @@ rock wrap-over 2.2×, dead zones behind rocks 100% → 73%.
 - v1 (`mp60_fan_shroud.scad`, clamshell) and v2 (`build_v2.py`, mitered)
   kept for reference; superseded.
 
+## MP40 variant
+
+`build_v3.py --pump mp40` generates the same architecture scaled to the
+MP40 cage (bore Ø56.9, three lugs at 120°, total ≈141 mm above the
+glass). You need an MP40 wet-side cage mesh saved as `cage_mp40.stl`
+(rim at z=0, axis up — the extractor's rotation applies; check the
+license of whichever cage model you use before redistributing).
+
 ## Fidelity caveats
 
 2D LES slices at reduced Reynolds number: excellent for *ranking*

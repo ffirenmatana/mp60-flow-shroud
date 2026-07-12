@@ -41,13 +41,16 @@ def main(path):
          for t in obj.findall('.//m:triangle', NS)]
 
     ymin = min(v[1] for v in V)
-    W = [(x, z, y - ymin) for x, y, z in V]     # swap y/z, rim to z=0
+    # PROPER ROTATION about x (det=+1), NOT an axis swap: the cage's
+    # bayonet lugs are chiral (directional ramps) -- a reflection produces
+    # a mirror part that will not twist-lock onto the wet side.
+    W = [(x, -z, y - ymin) for x, y, z in V]    # rotate y-up -> z-up
     out = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'cage.stl')
     with open(out, 'wb') as f:
         f.write(b'\0' * 80)
         f.write(struct.pack('<I', len(T)))
         for a, b, c in T:
-            p, q, r = W[a], W[c], W[b]          # swapped winding (mirrored)
+            p, q, r = W[a], W[b], W[c]          # winding preserved (rotation)
             u = [q[i] - p[i] for i in range(3)]
             v = [r[i] - p[i] for i in range(3)]
             n = [u[1]*v[2]-u[2]*v[1], u[2]*v[0]-u[0]*v[2], u[0]*v[1]-u[1]*v[0]]

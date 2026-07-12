@@ -21,19 +21,38 @@ Output: mp60_shroud_v3.stl
 """
 import json
 import os
+import sys
 
 import numpy as np
 import trimesh
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 
+# ---------------- pump selection ----------------
+PUMPS = {
+    'mp60': dict(cage='cage.stl', bore=71.6, z_face=72.0, spike_r=35.2,
+                 spike_z=(57.5, 74.5), duct_w=95.0,
+                 rib_ys=(-28.0, -10.0, 10.0, 28.0),
+                 out='mp60_shroud_v3.stl', params=None),   # from agent/final.json
+    # MP40: same architecture scaled by bore ratio 56.9/71.6 = 0.795
+    'mp40': dict(cage='cage_mp40.stl', bore=56.9, z_face=57.0, spike_r=28.0,
+                 spike_z=(43.0, 59.0), duct_w=76.0,
+                 rib_ys=(-22.0, -8.0, 8.0, 22.0),
+                 out='mp40_shroud_v3.stl',
+                 params=dict(bend_r=49.0, duct_h=41.0, fan_len=72.0,
+                             exit_w=200.0, area_ratio=1.4, n_vanes=6,
+                             exp=2.4, tilt=15.0)),
+}
+PUMP_NAME = sys.argv[sys.argv.index('--pump') + 1] if '--pump' in sys.argv else 'mp60'
+PUMP = PUMPS[PUMP_NAME]
+
 # ---------------- parameters ----------------
-BORE = 71.6
+BORE = PUMP['bore']
 WALL = 3.2
-Z_FACE = 72.0
-Z_JOIN = 66.0
+Z_FACE = PUMP['z_face']
+Z_JOIN = Z_FACE - 6.0
 RISE = 14.0            # straight vertical run above the cage face
-DUCT_W = 95.0          # duct width entering the fan
+DUCT_W = PUMP['duct_w']  # duct width entering the fan
 N_RIDGES = 5
 CHEV = np.tan(np.radians(50))
 VANE_T = 1.8
@@ -54,6 +73,10 @@ MAX_TOTAL_H_GLASS = 180.0   # hard cap: part top above the tank floor.
 
 def load_params():
     p = dict(DEFAULTS)
+    if PUMP['params']:
+        p.update(PUMP['params'])
+        print(f'params for {PUMP_NAME}:', p)
+        return p
     bj = os.path.join(HERE, 'agent', 'final.json')
     if not os.path.exists(bj):
         bj = os.path.join(HERE, 'agent', 'best.json')
@@ -308,7 +331,7 @@ def straighteners():
     return parts
 
 
-RIB_YS = (-28.0, -10.0, 10.0, 28.0)   # gusset positions (tube exists here)
+RIB_YS = PUMP['rib_ys']               # gusset positions (tube exists here)
 RIB_T = 6.0                            # rib thickness
 RIB_SLOPE = np.tan(np.radians(55))     # steeper than 45: shorter reach
 
@@ -342,9 +365,11 @@ def bool_op(op, meshes):
 
 
 def main():
-    cage = trimesh.load(os.path.join(HERE, 'cage.stl'))
-    spike = trimesh.creation.cylinder(radius=35.2, height=17, sections=96)
-    spike.apply_translation([0, 0, 65.5])
+    cage = trimesh.load(os.path.join(HERE, PUMP['cage']))
+    z0, z1 = PUMP['spike_z']
+    spike = trimesh.creation.cylinder(radius=PUMP['spike_r'],
+                                      height=z1 - z0, sections=96)
+    spike.apply_translation([0, 0, (z0 + z1) / 2])
     cage = bool_op('difference', [cage, spike])
 
     cavity = duct_loft(0.0, ext=WALL + 2)
@@ -361,8 +386,8 @@ def main():
     v = final.vertices
     print(f'envelope x {v[:,0].min():.0f}..{v[:,0].max():.0f} '
           f'y {v[:,1].min():.0f}..{v[:,1].max():.0f} z 0..{v[:,2].max():.0f}')
-    final.export(os.path.join(HERE, 'mp60_shroud_v3.stl'))
-    print('exported mp60_shroud_v3.stl')
+    final.export(os.path.join(HERE, PUMP['out']))
+    print('exported', PUMP['out'])
 
     nrm = final.face_normals
     area = final.area_faces
