@@ -69,6 +69,8 @@ WETSIDE_H = 4.0        # glass -> cage rim. EcoTech spec: wet side is
 MAX_TOTAL_H_GLASS = 180.0   # hard cap: part top above the tank floor.
 # Tank-sim design rule still applies: rock directly in FRONT of the exit
 # must sit 20-40mm BELOW the exit centerline (printed on build).
+MAX_BED_XY = 270.0          # printer bed (mm); fan width capped to fit,
+                            # leaving margin for a brim + centering slack.
 
 
 def load_params():
@@ -94,6 +96,15 @@ TILT = float(P['tilt'])
 BEND_R = float(P['bend_r'])
 FAN_LEN = float(P['fan_len'])
 EXIT_W = float(P['exit_w'])
+# fit the fan width to the bed. Y footprint ~= EXIT_W + 2*WALL. The mount
+# and pump load are untouched: EXIT_AREA is fixed by area_ratio below, so a
+# narrower exit just gets taller -> identical flow, slightly less arc.
+_bed_usable = MAX_BED_XY - 34.0        # ~17mm/side: brim + centering slack
+if EXIT_W + 2 * WALL > _bed_usable:
+    _old = EXIT_W
+    EXIT_W = _bed_usable - 2 * WALL
+    print(f'bed cap: exit_w {_old:.0f} -> {EXIT_W:.0f}mm '
+          f'(Y footprint fits {MAX_BED_XY:.0f}mm bed)')
 EXIT_AREA = float(P['area_ratio']) * BORE_AREA
 N_VANES = int(P['n_vanes'])
 FAN_EXP = float(P['exp'])
