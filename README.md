@@ -77,13 +77,24 @@ spread will be gentler. Not yet wet-tested; sim-driven design.
 
 ## Print & install
 
-Black PETG (carbon black = UV stabiliser), 0.2 mm layers, 4+ perimeters,
-40% infill. Supports on build plate only (under the fan floor). Rinse,
-soak 24 h in saltwater, bayonet onto the wet side like the stock cage,
-clock the fan down-tank before locking (lugs quantize to 120° — fine-aim
-with the pump body). Bottom-mount basics: correct spacer for your glass,
-catch bracket under the dry side, run 30–40% for the first week and
-listen to the bushing.
+Slicer: PrusaSlicer, "Original Prusa Core One L" profile. Black PETG
+(carbon black = UV stabiliser), 0.2 mm layers, 4 perimeters (walls are
+3.2 mm = solid at 4), 15 % gyroid infill (part is mostly hollow duct).
+Nozzle 245 °C, bed 85 °C, chamber passive/low (PETG doesn't want chamber
+heat). Cooling fan ~30–40 % (bias to layer strength). Elephant-foot
+compensation 0.15 mm (protects the bayonet-lug fit). Brim 5 mm.
+
+Supports: **organic (tree), build-plate only, 45° threshold** — only the
+fan underside needs them; the gothic roof self-supports. ~490 g PETG total.
+
+Print the mount coupon first (`make_coupon.py`, ~30 min) to check the
+bayonet before the full run.
+
+Install: rinse, soak 24 h in saltwater, bayonet onto the wet side like the
+stock cage, clock the fan down-tank before locking (lugs quantize to 120°
+— fine-aim with the pump body). Bottom-mount basics: correct spacer for
+your glass, catch bracket under the dry side, run 30–40 % for the first
+week and listen to the bushing.
 
 ## Getting the STL (license-respecting build)
 
