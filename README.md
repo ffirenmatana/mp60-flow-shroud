@@ -30,10 +30,10 @@ rock wrap-over 2.2×, dead zones behind rocks 100% → 73%.
 
 ## Files
 
-- `mp60_shroud_v3.stl` — generated locally (325 cm³; 226×236×175 mm, fits a 270³ bed), see below
+- `mp60_shroud_v3.stl` — generated locally (325 cm³; 226×256×175 mm, fits Prusa Core One L 300×300×330), see below
 - `build_v3.py` — fully parametric generator (numpy lofts + manifold
   booleans). Key knobs at top: `MAX_TOTAL_H_GLASS` (height cap, default
-  180), `MAX_BED_XY` (build-plate cap, default 270), `WETSIDE_H`, wall, vanes. Reads `agent/final.json`.
+  180), `MAX_BED_XY` (build-plate cap, default 300), `WETSIDE_H`, wall, vanes. Reads `agent/final.json`.
 - `cfd/lbm.py` — D2Q9 lattice-Boltzmann + Smagorinsky LES solver:
   elbow slice, fan plan, and closed-tank (with rocks, free surface,
   actuator jet) planes. Mass-balance-validated.

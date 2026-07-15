@@ -69,8 +69,9 @@ WETSIDE_H = 4.0        # glass -> cage rim. EcoTech spec: wet side is
 MAX_TOTAL_H_GLASS = 180.0   # hard cap: part top above the tank floor.
 # Tank-sim design rule still applies: rock directly in FRONT of the exit
 # must sit 20-40mm BELOW the exit centerline (printed on build).
-MAX_BED_XY = 270.0          # printer bed (mm); fan width capped to fit,
+MAX_BED_XY = 300.0          # printer bed (mm); fan width capped to fit,
                             # leaving margin for a brim + centering slack.
+                            # Prusa Core One L = 300x300x330 -> full exit_w.
 
 
 def load_params():

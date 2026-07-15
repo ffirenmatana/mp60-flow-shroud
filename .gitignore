@@ -16,3 +16,4 @@ __pycache__/
 .DS_Store
 mp60_mount_coupon.stl
 mp40_mount_coupon.stl
+.venv/
