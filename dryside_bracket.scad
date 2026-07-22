@@ -20,11 +20,13 @@
 //
 // MEASURE FIRST (calliper the dry side):
 DRY_OD     = 100;  // MEASURED 2026-07-13 (magnet makes it fiddly; clearance absorbs +/-1mm)
-DRY_H      = 73;   // MEASURED: glass face -> bottom of dry side, incl. shim
+DRY_H      = 73;   // MEASURED (if this excluded the ~2mm shim face,
+                   // the 5mm drop gap below still leaves 3mm clearance)
 SHIM_EXTRA = 4;    // MEASURED: 2mm shim wall -> +4mm on diameter
 // ------------------------------------------------------------
 CLEAR     = 2.5;   // radial clearance past the shim
-DROP_GAP  = 3;     // ledge sits this far below the dry side
+DROP_GAP  = 5;     // ledge below the dry side; sized to absorb the
+                   // shim-thickness ambiguity in DRY_H
 WALL      = 4;
 LEDGE_W   = 11;    // ledge reach inward under the housing
 LEDGE_T   = 5;
