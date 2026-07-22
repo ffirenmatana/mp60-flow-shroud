@@ -11,7 +11,7 @@
 //    magnetic seating and shim do their job undisturbed.
 //  * Venting: 4 big gothic-arched windows + the open mouth expose
 //    most of the air-cooled housing. Arched tops = self-supporting.
-//  * C-shape, 130 deg mouth: dry side slides out sideways for
+//  * C-shape, 140 deg mouth: dry side slides out sideways for
 //    service without peeling the tape. INSTALL with the mouth
 //    pointing the SAME direction as the fan exit (thrust reaction
 //    pushes the pump into the closed back of the C).
@@ -19,9 +19,9 @@
 //    dead flat. No supports needed anywhere.
 //
 // MEASURE FIRST (calliper the dry side):
-DRY_OD     = 103;  // dry side housing diameter (spec ~102)
-DRY_H      = 72;   // glass face -> bottom of dry side, incl. shim
-SHIM_EXTRA = 6;    // how much the rubber shim adds to the diameter
+DRY_OD     = 100;  // MEASURED 2026-07-13 (magnet makes it fiddly; clearance absorbs +/-1mm)
+DRY_H      = 73;   // MEASURED: glass face -> bottom of dry side, incl. shim
+SHIM_EXTRA = 4;    // MEASURED: 2mm shim wall -> +4mm on diameter
 // ------------------------------------------------------------
 CLEAR     = 2.5;   // radial clearance past the shim
 DROP_GAP  = 3;     // ledge sits this far below the dry side
@@ -31,7 +31,8 @@ LEDGE_T   = 5;
 PAD_L     = 42;    // tape pad, radial
 PAD_W     = 38;    // tape pad, tangential
 TOP_BAND  = 9;     // solid band at the tape plane
-MOUTH_DEG = 130;
+MOUTH_DEG = 140;   // widened so the mouth chord (>102mm) clears
+                   // the 100mm housing for sideways service removal
 
 ID     = DRY_OD + SHIM_EXTRA + 2*CLEAR;
 R_IN   = ID/2;
