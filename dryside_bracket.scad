@@ -11,7 +11,7 @@
 //    magnetic seating and shim do their job undisturbed.
 //  * Venting: 4 big gothic-arched windows + the open mouth expose
 //    most of the air-cooled housing. Arched tops = self-supporting.
-//  * C-shape, 140 deg mouth: dry side slides out sideways for
+//  * C-shape, 150 deg mouth: dry side slides out sideways for
 //    service without peeling the tape. INSTALL with the mouth
 //    pointing the SAME direction as the fan exit (thrust reaction
 //    pushes the pump into the closed back of the C).
@@ -24,17 +24,23 @@ DRY_H      = 73;   // MEASURED (if this excluded the ~2mm shim face,
                    // the 5mm drop gap below still leaves 3mm clearance)
 SHIM_EXTRA = 4;    // MEASURED: 2mm shim wall -> +4mm on diameter
 // ------------------------------------------------------------
-CLEAR     = 2.5;   // radial clearance past the shim
+CLEAR     = 4.0;   // radial clearance past the shim -- ZERO contact
+                   // required; widened after v2 measured ~2mm
 DROP_GAP  = 5;     // ledge below the dry side; sized to absorb the
                    // shim-thickness ambiguity in DRY_H
 WALL      = 4;
-LEDGE_W   = 11;    // ledge reach inward under the housing
+LEDGE_W   = 22;    // deep ledge: the dry side TAPERS (~100 at the shim
+                   // face down to ~78 at the label face), so the catch
+                   // opening must be well under the BOTTOM diameter. The
+                   // 45deg chamfer doubles as a self-centering funnel.
+                   // Opening = ID - 2*LEDGE_W = 68mm. If the label face
+                   // measures under 72mm, increase LEDGE_W.
 LEDGE_T   = 5;
 PAD_L     = 42;    // tape pad, radial
 PAD_W     = 38;    // tape pad, tangential
 TOP_BAND  = 9;     // solid band at the tape plane
-MOUTH_DEG = 140;   // widened so the mouth chord (>102mm) clears
-                   // the 100mm housing for sideways service removal
+MOUTH_DEG = 150;   // v3: widened again for easy service removal
+                   // (chord ~108mm vs the 100mm housing)
 
 ID     = DRY_OD + SHIM_EXTRA + 2*CLEAR;
 R_IN   = ID/2;
@@ -44,9 +50,14 @@ H_TOT  = H_COL + LEDGE_T;
 C_A0   = MOUTH_DEG/2;              // C spans C_A0 .. 360-C_A0, mouth on +X
 C_SPAN = 360 - MOUTH_DEG;
 RIBS   = [for (i = [0:4]) C_A0 + i*C_SPAN/4];   // 5 rib centers
-PADS   = [RIBS[1], RIBS[2], RIBS[3]];
+PADS   = RIBS;   // v3: pads on ALL five ribs -- the two mouth-shoulder
+                 // feet stop catch loads levering/peeling the back pads
 WIN_H0 = TOP_BAND;                 // window bottom (print z)
-WIN_H1 = H_COL - 10;               // window arch apex
+WIN_H1 = H_COL - LEDGE_W - 3;      // window apex: MUST end 3mm below the
+                                   // chamfer start so the ledge cone always
+                                   // begins on a full solid ring (v2's arch
+                                   // peaks poked above it -> mid-air chamfer
+                                   // start over windows -> the print failure)
 $fn = 160;
 
 module c_shell() {
