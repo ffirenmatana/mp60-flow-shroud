@@ -29,12 +29,18 @@ CLEAR     = 4.0;   // radial clearance past the shim -- ZERO contact
 DROP_GAP  = 5;     // ledge below the dry side; sized to absorb the
                    // shim-thickness ambiguity in DRY_H
 WALL      = 4;
-LEDGE_W   = 22;    // deep ledge: the dry side TAPERS (~100 at the shim
-                   // face down to ~78 at the label face), so the catch
-                   // opening must be well under the BOTTOM diameter. The
-                   // 45deg chamfer doubles as a self-centering funnel.
-                   // Opening = ID - 2*LEDGE_W = 68mm. If the label face
-                   // measures under 72mm, increase LEDGE_W.
+LEDGE_W   = 22;    // deep ledge + 45deg self-centering funnel.
+                   // MEASURED housing profile (2026-07-23, hanging from
+                   // glass): O100 shim face -> O95 above cable entry ->
+                   // O78 at the vent shelf -> O62 at the logo face (that
+                   // last step over only 5mm). Catch mechanics: the O78
+                   // vent shelf seats on the funnel after a ~5mm drop
+                   // (housing bottom cone is steeper than the 45deg
+                   // funnel, so the wide rim contacts first); the O62
+                   // tip hovers inside the 68mm opening. >=5mm running
+                   // clearance at every depth. Route the power cord out
+                   // through the MOUTH -- pinned between housing and
+                   // shell it would bridge vibration.
 LEDGE_T   = 5;
 PAD_L     = 42;    // tape pad, radial
 PAD_W     = 38;    // tape pad, tangential
